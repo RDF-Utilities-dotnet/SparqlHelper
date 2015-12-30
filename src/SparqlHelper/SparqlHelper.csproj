@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectGuid>{624BF2B2-731C-4B14-96C2-D9C99923A00D}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>Library</OutputType>
+    <RootNamespace>SparqlHelper</RootNamespace>
+    <AssemblyName>SparqlHelper</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <NoWin32Manifest>False</NoWin32Manifest>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <NoStdLib>False</NoStdLib>
+    <DocumentationFile>..\..\doc\SparqlHelper.xml</DocumentationFile>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <WarningLevel>4</WarningLevel>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <SignAssembly>True</SignAssembly>
+    <DelaySign>False</DelaySign>
+    <AssemblyOriginatorKeyFile>..\..\keys\SparqlHelper.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyMode>File</AssemblyOriginatorKeyMode>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <BaseAddress>4194304</BaseAddress>
+    <RegisterForComInterop>False</RegisterForComInterop>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <FileAlignment>4096</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>..\..\bin\Debug\</OutputPath>
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <Optimize>False</Optimize>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <BaseIntermediateOutputPath>obj\</BaseIntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>..\..\bin\Release\</OutputPath>
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <Optimize>True</Optimize>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+    <DefineConstants>TRACE</DefineConstants>
+    <BaseIntermediateOutputPath>obj\</BaseIntermediateOutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AskQuery.cs" />
+    <Compile Include="AskQuery.Sparql.cs">
+      <DependentUpon>AskQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BindStatement.cs" />
+    <Compile Include="BlankPredicate.cs" />
+    <Compile Include="ColumnExpressions\Column.cs" />
+    <Compile Include="ColumnExpressions\ExpressionColumn.cs" />
+    <Compile Include="ColumnExpressions\VariableColumn.cs" />
+    <Compile Include="ConstructQuery.cs" />
+    <Compile Include="ConstructQuery.Sparql.cs">
+      <DependentUpon>ConstructQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataRecordGraph.cs" />
+    <Compile Include="DataRecordQuery.cs" />
+    <Compile Include="DataRecordQueryEventArgs.cs" />
+    <Compile Include="Expressions\AddExpression.cs" />
+    <Compile Include="Expressions\AndExpression.cs" />
+    <Compile Include="Expressions\BooleanLiteralExpression.cs" />
+    <Compile Include="Expressions\DateLiteralExpression.cs" />
+    <Compile Include="Expressions\DateTimeLiteralExpression.cs" />
+    <Compile Include="Expressions\DecimalLiteralExpression.cs" />
+    <Compile Include="Expressions\DivideExpression.cs" />
+    <Compile Include="Expressions\DoubleLiteralExpression.cs" />
+    <Compile Include="Expressions\EqualExpression.cs" />
+    <Compile Include="Expressions\ExistsExpression.cs" />
+    <Compile Include="Expressions\ExistsExpressionBase.cs" />
+    <Compile Include="Expressions\FloatLiteralExpression.cs" />
+    <Compile Include="Expressions\Functions\AbsExpression.cs" />
+    <Compile Include="Expressions\Functions\AggregateFunctionExpression.cs" />
+    <Compile Include="Expressions\Functions\AvgExpression.cs" />
+    <Compile Include="Expressions\Functions\BoundExpression.cs" />
+    <Compile Include="Expressions\Functions\CoalesceExpression.cs" />
+    <Compile Include="Expressions\Functions\ContainsExpression.cs" />
+    <Compile Include="Expressions\Functions\ConvertToDatatypeOfExpression.cs" />
+    <Compile Include="Expressions\Functions\CountExpression.cs" />
+    <Compile Include="Expressions\Functions\DatatypeExpression.cs" />
+    <Compile Include="Expressions\Functions\FunctionExpression.cs" />
+    <Compile Include="Expressions\Functions\GroupConcatExpression.cs" />
+    <Compile Include="Expressions\Functions\IfExpression.cs" />
+    <Compile Include="Expressions\Functions\IsIriExpression.cs" />
+    <Compile Include="Expressions\Functions\LangExpression.cs" />
+    <Compile Include="Expressions\Functions\LangMatchesExpression.cs" />
+    <Compile Include="Expressions\Functions\LowerCaseExpression.cs" />
+    <Compile Include="Expressions\Functions\MaxExpression.cs" />
+    <Compile Include="Expressions\Functions\MinExpression.cs" />
+    <Compile Include="Expressions\Functions\RegexExpression.cs" />
+    <Compile Include="Expressions\Functions\SameTermExpression.cs" />
+    <Compile Include="Expressions\Functions\SampleExpression.cs" />
+    <Compile Include="Expressions\Functions\StrDTExpression.cs" />
+    <Compile Include="Expressions\Functions\StrExpression.cs" />
+    <Compile Include="Expressions\Functions\StrLangExpression.cs" />
+    <Compile Include="Expressions\Functions\StrLenExpression.cs" />
+    <Compile Include="Expressions\Functions\SumExpression.cs" />
+    <Compile Include="Expressions\Functions\UpperCaseExpression.cs" />
+    <Compile Include="Expressions\GreaterExpression.cs" />
+    <Compile Include="Expressions\GreaterOrEqualExpression.cs" />
+    <Compile Include="Expressions\InExpression.cs" />
+    <Compile Include="Expressions\InExpressionBase.cs" />
+    <Compile Include="Expressions\IntLiteralExpression.cs" />
+    <Compile Include="Expressions\IriExpression.cs" />
+    <Compile Include="Expressions\LessExpression.cs" />
+    <Compile Include="Expressions\LessOrEqualExpression.cs" />
+    <Compile Include="Expressions\LiteralExpression.cs" />
+    <Compile Include="Expressions\MultiplyExpression.cs" />
+    <Compile Include="Expressions\NotEqualExpression.cs" />
+    <Compile Include="Expressions\NotExistsExpression.cs" />
+    <Compile Include="Expressions\NotInExpression.cs" />
+    <Compile Include="Expressions\OrExpression.cs" />
+    <Compile Include="Expressions\Expression.cs" />
+    <Compile Include="Expressions\NamedThingExpression.cs" />
+    <Compile Include="Expressions\NAryOperatorExpression.cs" />
+    <Compile Include="Expressions\NotExpression.cs" />
+    <Compile Include="Expressions\NegativeExpression.cs" />
+    <Compile Include="Expressions\OperatorExpression.cs" />
+    <Compile Include="Expressions\ParentExpression.cs" />
+    <Compile Include="Expressions\PositiveExpression.cs" />
+    <Compile Include="Expressions\SimpleLiteralExpression.cs" />
+    <Compile Include="Expressions\StringLiteralExpression.cs" />
+    <Compile Include="Expressions\StringLiteralExpressionBase.cs" />
+    <Compile Include="Expressions\SubtractExpression.cs" />
+    <Compile Include="Expressions\TypedLiteralExpression.cs" />
+    <Compile Include="Expressions\UnaryOperatorExpression.cs" />
+    <Compile Include="Filters\CustomTextFilter.cs" />
+    <Compile Include="Filters\ExpressionFilter.cs" />
+    <Compile Include="Filters\Filter.cs" />
+    <Compile Include="GraphRestrictionProviderList.cs" />
+    <Compile Include="GraphStatement.cs" />
+    <Compile Include="GraphTemplates\GraphTemplate.cs" />
+    <Compile Include="GraphTemplates\GraphTemplate.Sparql.cs">
+      <DependentUpon>GraphTemplate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GraphTemplates\TemplateIriEnd.cs" />
+    <Compile Include="GraphTemplates\TemplateIriPredicate.cs" />
+    <Compile Include="GraphTemplates\TemplateNamedBlankEnd.cs" />
+    <Compile Include="GraphTemplates\TemplateNamedBlankPredicate.cs" />
+    <Compile Include="GraphTemplates\TemplateTriple.cs" />
+    <Compile Include="GraphTemplates\TemplateTripleEnd.cs" />
+    <Compile Include="GraphTemplates\TemplateTriplePredicate.cs" />
+    <Compile Include="GraphTemplates\TemplateTypePredicate.cs" />
+    <Compile Include="GraphTemplates\TemplateVariableEnd.cs" />
+    <Compile Include="GraphTemplates\TemplateVariablePredicate.cs" />
+    <Compile Include="IGraphRestrictionProvider.cs" />
+    <Compile Include="InlineData\ValuesBlock.cs" />
+    <Compile Include="InlineData\ValuesIri.cs" />
+    <Compile Include="InlineData\ValuesLiteral.cs" />
+    <Compile Include="InlineData\ValuesUndefined.cs" />
+    <Compile Include="InlineData\ValuesValue.cs" />
+    <Compile Include="NamedBlankNode.cs" />
+    <Compile Include="NamedBlankPredicate.cs" />
+    <Compile Include="NamedThing.cs" />
+    <Compile Include="PropertyPaths\LiteralEnd.cs" />
+    <Compile Include="Sorting\ExpressionConstraint.cs" />
+    <Compile Include="Sorting\SortDirection.cs" />
+    <Compile Include="Sorting\SortingConstraint.cs" />
+    <Compile Include="Sorting\SortingConstraintList.cs" />
+    <Compile Include="Sorting\VariableConstraint.cs" />
+    <Compile Include="Variable.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PropertyPaths\AlternativePath.cs" />
+    <Compile Include="PropertyPaths\BlankEnd.cs" />
+    <Compile Include="PropertyPaths\BlankTripleEnd.cs" />
+    <Compile Include="PropertyPaths\GroupPath.cs" />
+    <Compile Include="PropertyPaths\InversePath.cs" />
+    <Compile Include="PropertyPaths\IriEnd.cs" />
+    <Compile Include="PropertyPaths\IriPath.cs" />
+    <Compile Include="PropertyPaths\MultiChildPath.cs" />
+    <Compile Include="PropertyPaths\NamedBlankEnd.cs" />
+    <Compile Include="PropertyPaths\PredicatePath.cs" />
+    <Compile Include="PropertyPaths\PropertyPath.cs" />
+    <Compile Include="PropertyPaths\PropertyPathEnd.cs" />
+    <Compile Include="PropertyPaths\SequencePath.cs" />
+    <Compile Include="PropertyPaths\SingleChildPath.cs" />
+    <Compile Include="PropertyPaths\TypePath.cs" />
+    <Compile Include="PropertyPaths\VariableEnd.cs" />
+    <Compile Include="Query.cs" />
+    <Compile Include="QueryGraph.cs" />
+    <Compile Include="QueryGraph.Sparql.cs">
+      <DependentUpon>QueryGraph.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SelectQuery.cs" />
+    <Compile Include="SelectQuery.Sparql.cs">
+      <DependentUpon>SelectQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RetrievalRestrictions.cs" />
+    <Compile Include="SparqlConversion\IIriPrefixingService.cs" />
+    <Compile Include="SparqlConversion\IriPrefix.cs" />
+    <Compile Include="SparqlConversion\PrefixUtilities.cs" />
+    <Compile Include="SparqlConversion\SparqlSettings.cs" />
+    <Compile Include="SparqlConversion\VariablePrefixSymbol.cs" />
+    <Compile Include="Triple.cs" />
+    <Compile Include="TriplePredicate.cs" />
+    <Compile Include="VariablePredicate.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Expressions\Functions" />
+    <Folder Include="Filters" />
+    <Folder Include="GraphTemplates" />
+    <Folder Include="ColumnExpressions" />
+    <Folder Include="Expressions" />
+    <Folder Include="InlineData" />
+    <Folder Include="Sorting" />
+    <Folder Include="SparqlConversion" />
+    <Folder Include="PropertyPaths" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
